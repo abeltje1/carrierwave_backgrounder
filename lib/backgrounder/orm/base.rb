@@ -109,8 +109,8 @@ module CarrierWave
             end
 
             def enqueue_#{column}_background_job
-              mounted_as = respond_to?(:#{column}.mounted_as) ? #{column}.mounted_as : :avatars
-              CarrierWave::Backgrounder.enqueue_for_backend(#{worker}, self.class.name, id.to_s, #{column}.mounted_as)
+              m_as = respond_to?(:#{column}.mounted_as) ? #{column}.mounted_as : :avatars
+              CarrierWave::Backgrounder.enqueue_for_backend(#{worker}, self.class.name, id.to_s, m_as)
             end
           RUBY
         end
